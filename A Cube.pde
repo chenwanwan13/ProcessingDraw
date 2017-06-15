@@ -1,5 +1,3 @@
-
-
 size(640, 640);
 noSmooth();
 background(255,150,150);
