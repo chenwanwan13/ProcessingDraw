@@ -1,4 +1,3 @@
-# HEARTBEAT
+# HEARTBEAT:sparkling_heart:
 
-:sparkling_heart:
 ![heartbeat](https://github.com/llapuras/ProcessingDraw/blob/master/heartbeat/heartbeat.gif)
