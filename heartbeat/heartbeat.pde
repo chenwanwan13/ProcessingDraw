@@ -1,37 +1,44 @@
-final int DIVISOR = 2;
+import gifAnimation.*;
+import processing.opengl.*;
 
-PImage img;
-float x = 0.28;
+GifMaker gifExport;
+
+float x = 1.88;
 PShape s;
 
 void setup()
 {
-  img = loadImage("1.jpg");
-  size(520, 800, P3D);
-  smooth(10);
-  frameRate(30);
-
+  size(520, 520, OPENGL);
+  frameRate(100);
+  smooth(8);
   s = createShape(); 
   s.beginShape(); 
-  s.fill(255,0,0);
+  s.fill(208,16,76);
   s.noStroke();
   s.vertex(0, 75); 
   s.bezierVertex(0, -10, 200, 25, 0, 200); 
   s.vertex(0, 75); 
   s.bezierVertex(0, -10, -200, 25, 0, 200); 
   s.endShape(CLOSE);
+  
+  gifExport = new GifMaker(this, "heartbeat.gif");
+  gifExport.setRepeat(0);
 }
 
 void draw()
 {
-  image(img, 0, 0);
-  noStroke();
-  shapeMode(CENTER);
-  ellipseMode(CENTER);
+  background(254,223,225);
+  shapeMode(CENTER); 
   translate(width/2, height/2);
+  stroke(238,169,169);
+   x = x+0.08;
+  scale((0.9 + abs(cos(x)))*0.5);
+  shape(s,90,-50);
+  gifExport.setDelay(1000/60);
+  gifExport.addFrame();
+}
 
-  x = x+0.08;
-  scale(0.5 + abs(cos(x)));
-  shape(s, 90, -50);
-
+void keyPressed() {
+  gifExport.finish();
+  println("gif saved");
 }
