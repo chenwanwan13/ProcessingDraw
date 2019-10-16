@@ -14,13 +14,13 @@ def setup():
 
 def draw():
     #generate static random values
-    background(bg4)    
+    background(bg2)    
     randomSeed(0)
     for x in range(0, width, SPACER):
         for y in range(0, height, SPACER):
             noStroke()
-            colorX = COLORS4[int(random(len(COLORS4)))]
-            for i in range(0,int(random(1,5)),1):
+            colorX = COLORS2[int(random(len(COLORS2)))]
+            for i in range(0,int(random(1,7)),1):
                  delta = random(-5,5)
                  fill(colorX,random(10,150))
                  rect(x+delta, y+delta, 50, 50)
