@@ -2,7 +2,7 @@ let palette = ["#96ceb4","#ffeead","#ff6f69","#ffcc5c","#88d8b0"];
 let bg;
 
 function setup(){
-  createCanvas(800, 800);
+  createCanvas(1112, 834);
   noLoop();
   let sep = 4;
   bg = createGraphics(width, height);
@@ -17,14 +17,14 @@ function setup(){
 }
 
 function draw(){
-  background("#fffbe9");
-  for(let i=0; i<500; i++){
+  background(random(palette));
+  for(let i=0; i<1000; i++){
     let x = random(width);
     let y = random(height);
-    let d = 120;
+    let d = 50;
     let col = color(random(palette));
     stroke(col);
-    for(let j=0; j<150; j++){
+    for(let j=0; j<50; j++){
       let rnd = random(1);
       let a = random(TAU);
       strokeWeight(random(2));
@@ -35,18 +35,17 @@ function draw(){
 }
 
 function noiseLine(x, y) {
-  let c = 5;
+  let c = 10;
   let px = x;
   let py = y;
   for (let i = 0; i < c; i++) {
     let ns = 0.001;
-    let n = 10;
     let angle = noise(x * ns, y * ns, i * 0.0001) * 20;
     line(x, y, px, py);
     px = x;
     py = y;
-    x += cos(angle) * 20;
-    y += sin(angle) * 2;
+    x += cos(angle) * 10;
+    y += sin(angle) * 10;
   }
 }
 
